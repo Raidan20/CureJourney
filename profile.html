@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<!--
+	TXT by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="ar" dir="rtl">
+	<head>
+		<title>الملف الشخصي - رحلة علاج</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<style>
+			.on_of{
+				display: none;
+			}
+
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<h1 id="logo">الملف الشخصي</h1>
+			<!-- Header -->
+				<header id="header">
+					<div class="logo container">
+						<div>
+							<p id="welcome">جارٍ تحميل بيانات المستخدم...</p>
+						</div>
+					</div>
+				</header>
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">الرئيسية</a></li>
+						<li class="current"><a href="sing_up.html">التسجيل</a></li>
+						<li><a href="profile.html">الملف الشخصي</a></li>
+						<li><a href="contact_us.html">التواصل معنا</a></li>
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<section id="main">
+					<div class="container">
+						<div class="row">
+							<div class="col-9 col-12-medium">
+								<div class="content">
+									<h2 class="on_of">الاسم بالكامل</h2>
+									<p class="on_of" id="name_res"></p>
+									<h2 class="on_of">تاريخ الميلاد</h2>
+									<p class="on_of" id="dob_res"></p>
+									<h2 class="on_of">رقم الهاتف</h2>
+									<p class="on_of" id="phone_res"></p>
+									<h2 class="on_of">العنوان</h2>
+									<p class="on_of" id="address_res"></p>
+
+									
+
+
+
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<div class="container">
+						<div class="row gtr-200" id="footer_new">
+								<!-- Contact -->
+									<section>
+										<h2 class="major"><span>التواصل معنا عبر قنواتنا في التواصل الإجتماعي</span></h2>
+										<ul class="contact">
+											<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/profile.php?id=61576541225307"><span class="label">Facebook</span></a></li>
+											<li><a class="icon brands fa-x-twitter" href="https://x.com/medical_ym"><span class="label">X</span></a></li>
+											<li><a class="icon brands fa-instagram" href="https://www.instagram.com/medical_ym/"><span class="label">Instagram</span></a></li>
+											<li><a class="icon brands fa-whatsapp" href="https://wa.me/0031687828075"><span class="label">WhatsApp</span></a></li>
+											<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/%D8%B1%D8%AD%D9%84%D8%A9-%D8%B9%D9%84%D8%A7%D8%AC-234449367/"><span class="label">LinkedIn</span></a></li>
+										</ul>
+									</section>
+
+							</div>
+						</div>
+
+						<!-- Copyright -->
+							<div id="copyright">
+								<ul class="menu">
+									<li>© <span id="year"></span> رحلة علاج. جميع الحقوق محفوظة.</li>
+								</ul>
+							</div>
+
+					</div>
+				</footer>
+				 <script>
+                    document.getElementById('year').textContent = new Date().getFullYear();
+                 </script>
+
+		</div>
+
+		<!-- Scripts -->
+		 	<script>
+                async function loadProfile() {
+                const token = localStorage.getItem("token");
+
+                if (!token) {
+                    alert("الرجاء تسجيل الدخول أولاً.");
+                    window.location.href = "/login.html";
+                    return;
+                }
+
+                try {
+                    const res = await fetch("http://localhost:5000/api/profile", {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                    });
+
+                    const data = await res.json();
+
+                    if (res.ok) {
+                    document.getElementById("welcome").innerText = `مرحبًا ${data.name}`;
+					document.getElementById("name_res").innerHTML = `${data.name}`;
+					document.getElementById("dob_res").innerHTML = `${data.dob}`;
+					document.getElementById("phone_res").innerHTML = `${data.phone}`;
+					document.getElementById("address_res").innerHTML = `${data.address}`;
+
+
+
+
+					// Get all elements with the class on of
+					const elements = document.querySelectorAll('.on_of');	
+					// Loop through and modify each one
+					elements.forEach(element => {
+					element.style.display = 'block';
+					});
+					
+
+                    // Show more profile data if needed
+                    } else {
+                    alert("خطأ: " + data.message);
+                    window.location.href = "/login.html";
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("حدث خطأ أثناء تحميل البيانات.");
+                }
+                }
+
+                window.onload = loadProfile;
+
+			</script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

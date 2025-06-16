@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<!--
+	TXT by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="ar" dir="rtl">
+	<head>
+		<title>الملف الشخصي - رحلة علاج</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<h1 id="logo">الملف الشخصي</h1>
+			<!-- Header -->
+				<header id="header">
+					<div class="logo container">
+						<div>
+							<p>تسجيل الدخول لملفك الشخصي</p>
+						</div>
+					</div>
+				</header>
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">الرئيسية</a></li>
+						<li class="current"><a href="sing_up.html">التسجيل</a></li>
+						<li><a href="profile.html">الملف الشخصي</a></li>
+						<li><a href="contact_us.html">التواصل معنا</a></li>
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<section id="main">
+					<div class="container">
+						<div class="row">
+							<div class="col-9 col-12-medium">
+								<div class="content">
+
+									<form id="userLoginForm" action="#" method="POST">
+										<!-- Email -->
+										<div class="form-group">
+										  <label for="email_login">البريد الإلكتروني</label>
+										  <input type="email" id="email_login" name="email"  required>
+										</div>
+										
+										<!-- password -->
+										<div class="form-group">
+											<label for="password_login">الرقم السري</label>
+											<input type="password" id="password_login" name="password"  required>
+										  </div>
+								  
+										<!-- Submit Button -->
+										<button type="submit">تسجيل الدخول</button>
+									  </form>
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<div class="container">
+						<div class="row gtr-200" id="footer_new">
+								<!-- Contact -->
+									<section>
+										<h2 class="major"><span>التواصل معنا عبر قنواتنا في التواصل الإجتماعي</span></h2>
+										<ul class="contact">
+											<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/profile.php?id=61576541225307"><span class="label">Facebook</span></a></li>
+											<li><a class="icon brands fa-x-twitter" href="https://x.com/medical_ym"><span class="label">X</span></a></li>
+											<li><a class="icon brands fa-instagram" href="https://www.instagram.com/medical_ym/"><span class="label">Instagram</span></a></li>
+											<li><a class="icon brands fa-whatsapp" href="https://wa.me/0031687828075"><span class="label">WhatsApp</span></a></li>
+											<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/%D8%B1%D8%AD%D9%84%D8%A9-%D8%B9%D9%84%D8%A7%D8%AC-234449367/"><span class="label">LinkedIn</span></a></li>
+										</ul>
+									</section>
+
+							</div>
+						</div>
+
+						<!-- Copyright -->
+							<div id="copyright">
+								<ul class="menu">
+									<li>© <span id="year"></span> رحلة علاج. جميع الحقوق محفوظة.</li>
+								</ul>
+							</div>
+
+					</div>
+				</footer>
+				 <script>
+                    document.getElementById('year').textContent = new Date().getFullYear();
+                 </script>
+
+		</div>
+
+		<!-- Scripts -->
+		 	<script>
+				console.log(document.getElementById("userLoginForm"));
+
+				document.getElementById("userLoginForm").addEventListener("submit", async function (e) {
+				e.preventDefault();
+				
+
+				const formData = {
+					email: document.getElementById("email_login").value,
+					password: document.getElementById("password_login").value,
+				};
+
+				try {
+					const res = await fetch("http://localhost:5000/api/auth/login", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(formData)
+					});
+
+					const data = await res.json();
+
+					if (res.ok) {
+					alert("تم تسجيل الدخول بنجاح!");
+					// Save token to localStorage or cookie
+					localStorage.setItem("token", data.token);
+
+					// Redirect or load user profile page
+					window.location.href = "/profile.html"; 
+					} else {
+					alert("خطأ: " + data.message);
+					}
+				} catch (err) {
+					alert("فشل الاتصال بالخادم.");
+				}
+				});
+
+			</script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

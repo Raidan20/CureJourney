@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<!--
+	TXT by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="ar" dir="rtl">
+	<head>
+		<title>التسجيل - رحلة علاج</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<h1 id="logo">التسجيل</h1>
+				<header id="header">
+					<div class="logo container">
+						<div>
+							<p>الرجاء تعبئة كل البيانات المطلوبة</p>
+						</div>
+					</div>
+				</header>
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">الرئيسية</a></li>
+						<li class="current"><a href="sing_up.html">التسجيل</a></li>
+						<li><a href="login.html">الملف الشخصي</a></li>
+						<li><a href="contact_us.html">التواصل معنا</a></li>
+					</ul>
+				</nav>
+
+				<section id="main">
+					<div class="container">
+						<form id="userDetailsForm" action="#" method="POST">
+							<div class="grid-container">
+								<!-- Full Name -->
+								<div class="form-group">
+									<label for="fullName">الأسم بالكامل</label>
+									<input type="text" id="fullName" name="fullName" required>
+								</div>
+				
+								<!-- Email -->
+								<div class="form-group">
+									<label for="email">البريد الإلكتروني</label>
+									<input type="email" id="email" name="email" required>
+								</div>
+				
+								<!-- Password -->
+								<div class="form-group">
+									<label for="password">أختيار رقم سري</label>
+									<input type="password" id="password" name="password" required>
+								</div>
+				
+								<!-- Phone Number -->
+								<div class="form-group">
+									<label for="phone">رقم الهاتف</label>
+									<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+								</div>
+				
+								<!-- Date of Birth -->
+								<div class="form-group">
+									<label for="dob">تاريخ الميلاد</label>
+									<input type="date" id="dob" name="dob" required>
+								</div>
+				
+								<!-- Gender -->
+								<div class="form-group">
+									<label for="gender">الجنس</label>
+									<select id="gender" name="gender" required>
+										<option value="" disabled selected>يرجى الأختيار</option>
+										<option value="male">ذكر</option>
+										<option value="female">أنثى</option>
+										<option value="other">أخرى</option>
+									</select>
+								</div>
+				
+								<!-- Address -->
+								<div class="form-group">
+									<label for="address">العنوان</label>
+									<textarea id="address" name="address" rows="2" required></textarea>
+								</div>
+								
+								<!-- Disaease Type -->
+								<div class="form-group">
+									<label for="diseases">يرجى اختيار الأمراض التي تعاني منها (يمكنك اختيار أكثر من خيار):</label>
+									<select id="diseases" name="diseases[]" multiple required>
+									  <option value="heart_disease">أمراض القلب</option>
+									  <option value="diabetes">السكري</option>
+									  <option value="hypertension">ارتفاع ضغط الدم</option>
+									  <option value="cancer">السرطان</option>
+									  <option value="respiratory_disease">أمراض الجهاز التنفسي</option>
+									  <option value="kidney_disease">أمراض الكلى</option>
+									  <option value="liver_disease">أمراض الكبد</option>
+									  <option value="neurological_disorder">اضطرابات الأعصاب</option>
+									  <option value="orthopedic_issue">مشاكل العظام</option>
+									  <option value="digestive_disorder">مشاكل الجهاز الهضمي</option>
+									  <option value="skin_disease">أمراض الجلد</option>
+									  <option value="eye_disease">مشاكل العيون</option>
+									  <option value="ear_nose_throat">مشاكل الأذن والأنف والحنجرة</option>
+									  <option value="mental_health">مشاكل الصحة النفسية</option>
+									  <option value="infectious_disease">الأمراض المعدية</option>
+									  <option value="other">أخرى (يرجى التوضيح)</option>
+									</select>
+								  </div>
+								  
+								  <!-- If "Other" is selected -->
+								  <div class="form-group">
+									<label for="otherDisease">إذا اخترت "أخرى"، يرجى تحديد المرض هنا:</label>
+									<input type="text" id="otherDisease" name="otherDisease" placeholder="اكتب المرض هنا">
+								  </div>							  
+
+								<!-- Description -->
+								<div class="form-group">
+									<label for="description">وصف مختصر للمرض</label>
+									<textarea id="description" name="description" rows="2" required></textarea>
+								</div>
+
+				
+								<!-- Upload -->
+								<div class="form-group">
+									<label for="upload">إرفاق صور الفحوصات الطبية</label>
+									<input type="file" id="medicalFile" name="medicalFile" accept=".pdf,.png,.jpg">
+								</div>
+				
+								<!-- Home Search -->
+								<div class="form-group">
+									<label for="home_search">هل تريد منا مساعدتك لإيجاد سكن</label>
+									<select id="home_search" name="home_search" required>
+										<option value="" disabled selected>يرجى الأختيار</option>
+										<option value="yes">نعم</option>
+										<option value="no">لا</option>
+									</select>
+								</div>
+				
+								<!-- Submit Button -->
+								<div class="form-group full-width">
+									<button type="submit">تسجيل</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<div class="container">
+						<div class="row gtr-200" id="footer_new">
+								<!-- Contact -->
+									<section>
+										<h2 class="major"><span>التواصل معنا عبر قنواتنا في التواصل الإجتماعي</span></h2>
+									    <ul class="contact">
+											<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/profile.php?id=61576541225307"><span class="label">Facebook</span></a></li>
+											<li><a class="icon brands fa-x-twitter" href="https://x.com/medical_ym"><span class="label">X</span></a></li>
+											<li><a class="icon brands fa-instagram" href="https://www.instagram.com/medical_ym/"><span class="label">Instagram</span></a></li>
+											<li><a class="icon brands fa-whatsapp" href="https://wa.me/0031687828075"><span class="label">WhatsApp</span></a></li>
+											<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/%D8%B1%D8%AD%D9%84%D8%A9-%D8%B9%D9%84%D8%A7%D8%AC-234449367/"><span class="label">LinkedIn</span></a></li>
+										</ul>
+									</section>
+						</div>
+
+						<!-- Copyright -->
+							<div id="copyright">
+								<ul class="menu">
+									<li>© <span id="year"></span> رحلة علاج. جميع الحقوق محفوظة.</li>
+								</ul>
+							</div>
+
+					</div>
+				</footer>
+				 <script>
+                    document.getElementById('year').textContent = new Date().getFullYear();
+                 </script>
+
+		</div>
+
+		<!-- Scripts -->
+		 	<script>
+				document.getElementById("userDetailsForm").addEventListener("submit", async function (e) {
+				e.preventDefault(); // prevent traditional form submission
+
+				// Grab form data
+				const formData = {
+					name: document.getElementById("fullName").value,
+					email: document.getElementById("email").value,
+					password: document.getElementById("password").value,
+					phone: document.getElementById("phone").value,
+					dob: document.getElementById("dob").value,
+					gender: document.getElementById("gender").value,
+					address: document.getElementById("address").value,
+					diseases: Array.from(document.getElementById("diseases").selectedOptions).map(o => o.value),
+					otherDisease: document.getElementById("otherDisease").value,
+					description: document.getElementById("description").value,
+					home_search: document.getElementById("home_search").value
+					// Note: File upload will be handled differently (see below)
+				};
+
+				try {
+					const res = await fetch("http://localhost:5000/api/auth/register", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(formData)
+					});
+
+					const data = await res.json();
+					if (res.ok) {
+					alert("تم التسجيل بنجاح!");
+					document.getElementById("userDetailsForm").reset();
+					} else {
+					alert("حدث خطأ: " + data.message);
+					}
+				} catch (err) {
+					alert("خطأ في الاتصال بالخادم.");
+				}
+				});
+			</script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
